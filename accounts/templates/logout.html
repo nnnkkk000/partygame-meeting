@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% comment %} ページタイトル {% endcomment %}
+{% block title %}ログアウト{% endblock %}
+
+{% block contents %}
+    {% comment %} グリッドシステム {% endcomment %}
+    <div class="container">
+        {% comment %} 行配置 {% endcomment %}
+        <div class="row">
+            {% comment %} 列配置 {% endcomment %}
+            <div class="col offset-4 py-4">
+                <h3>ログアウトしました</h3>
+                {% comment %} トップページへのリンク {% endcomment %}
+                <p><a href="{% url 'partygame:index' %}">トップページ</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

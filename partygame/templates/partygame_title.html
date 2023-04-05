@@ -1,0 +1,23 @@
+
+{% comment %} タイトルとナビゲーションボタン {% endcomment %}
+  <div class="py-5 text-center container bg-okami">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto bg-opacity">
+        {% comment %} タイトルと本文 {% endcomment %}
+        <h1 class="fw-light pagetitle">PartyGame Meeting</h1>
+        <p class="lead pagecomment">最高のゲームに出会いたい方へ</p>
+        <p>
+          {% comment %} ナビゲーションボタン {% endcomment %}
+          {% comment %} ログイン中のボタン {% endcomment %}
+          {% if user.is_authenticated %}
+            <a href="{% url 'partygame:post' %}" class="btn btn-primary my-2 btn-width text-bold">投稿する</a>
+            <a href="{% url 'accounts:logout' %}" class="btn btn-secondary my-2 btn-width text-bold">ログアウト</a>
+          {% comment %} ログイン中でないときのボタン {% endcomment %}
+          {% else %}
+            <a href="{% url 'accounts:signup' %}" class="btn btn-dark my-2 text-bold">メンバー登録</a>
+            <a href="{% url 'accounts:login' %}" class="btn btn-light my-2 text-bold">ログイン</a>
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </div>

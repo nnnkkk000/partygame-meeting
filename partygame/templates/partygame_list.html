@@ -1,0 +1,72 @@
+{% load static %}
+
+  <div class="album py-5 bg-white">
+    {% comment %} グリッドシステム {% endcomment %}
+    <div class="container">
+      {% comment %} 行要素 {% endcomment %}
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% comment %} レコードが格納されたobject_listからレコードを取り出し、recordに入れる {% endcomment %}
+        {% for record in object_list %}
+          {% comment %} 列要素 {% endcomment %}
+          <div class="col">
+              <div class="">
+                <div class="card shadow-sm bg-blue container-margin-all list-size">
+                  {% comment %} ゲームタイトル {% endcomment %}
+                  <div class="list-title text-center-center" ><text class="list-title-text">{{ record.title }}</text></div>
+                  {% comment %} ゲーム概要 {% endcomment %}
+                  <div class="card-body list-subtitle-container container-column">
+                    <div class="list-subtitle"><p class="card-text">{{ record.subtitle }}</p></div>
+                    <div class="d-flex align-items-center detail-button">
+                      {% comment %} 詳細ボタン {% endcomment %}
+                        <button type="button" class="btn btn-sm btn-outline-dark" onclick="location.href='{% url 'partygame:partygame_detail' record.pk %}'">詳細を表示する</button>
+                    </div>
+                  </div>
+
+
+
+                  {% comment %} カテゴリ表示 {% endcomment %}
+                  <div class="container-row list-tag-container">
+                    <div class="none-space"></div>
+                    <div class="container-column">
+
+                      <a href="{% url 'partygame:partygame_category' category=record.category.id %}" style="text-decoration:none" class="text-black">
+                        <img src={% static 'img/card_black.png' %} width="25" height="20" class="">
+                        {{ record.category.title }}
+                      </a>
+
+                      <a href="{% url 'partygame:partygame_category2' category2=record.category2.id %}" style="text-decoration:none" class="text-black">
+                        <img src={% static 'img/people_black.png' %} width="25" height="20"class="">
+                        {{ record.category2.title }}
+                      </a>
+
+                      <a href="{% url 'partygame:partygame_category3' category3=record.category3.id %}" style="text-decoration:none" class="text-black">
+                        <img src={% static 'img/vsken.png' %} width="25" height="20" class="">
+                        {{ record.category3.title }}
+                      </a>
+
+                      <a href="{% url 'partygame:partygame_category4' category4=record.category4.id %}" style="text-decoration:none" class="text-black">
+                        <img src={% static 'img/nomiso_black.png' %} width="25" height="20" class="">
+                        {{ record.category4.title }}
+                      </a>
+
+                    </div>
+                  </div>
+
+                  <div class="username-container">
+                    {% comment %} ユーザーネーム {% endcomment %}
+                    <a href="{% url 'partygame:user_list' user=record.user.id %}" style="text-decoration:none">
+                      <small class="text-black" style="font-size:16px">{{ record.user.username }}</small>
+                    </a>
+                  </div>
+                </div>
+            </div>
+          {% comment %} 列要素終了 {% endcomment %}
+          </div>
+        {% endfor %}
+      {% comment %} 行要素終了 {% endcomment %}
+      </div>
+    {% comment %} グリッドシステム終了 {% endcomment %}
+    </div>
+  </div>
+
+

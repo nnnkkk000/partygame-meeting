@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Mypage{% endblock %}
+
+{% block contents %}
+    {% comment %} 投稿件数 {% endcomment %}
+    {% if user.is_authenticated %}
+        <br>
+        <div style="text-align:center">
+            <h4>{{ user.username }}さんのマイページ</h4>
+            {% if object_list.count == 0 %}
+                <p>{{ user.username }}さんの投稿はありません</p>
+            {% else %}
+                <p>{{ user.username }}さんの投稿一覧</p>
+            {% endif %}
+            <a href="{% url 'partygame:post' %}">投稿する</a>
+        </div>
+        <hr>
+    {% endif %}
+    {% comment %} 投稿一覧 {% endcomment %}
+    {% include "partygame_list.html" %}
+    {% comment %} ページネーション {% endcomment %}
+    {% include "pagination.html" %}
+{% endblock %}
+

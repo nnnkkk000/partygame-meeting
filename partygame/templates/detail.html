@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}詳細ページ{% endblock %}
+
+{% block contents %}
+    {% comment %} グリッドシステム {% endcomment %}
+    <br>
+    <div class="container">
+        {% comment %} 行配置 {% endcomment %}
+        <div class="row">
+            {% comment %} 列配置 {% endcomment %}
+            <div class="col">
+                {% comment %} タイトル {% endcomment %}
+                <h2 class="detail-gametitle">{{ object.title }}</h2>
+                {% comment %} サブタイトル {% endcomment %}
+                <h4 class="text-center">{{ object.subtitle }}</h4>
+                <br>
+                <br>
+                {% comment %} 必要アイテム {% endcomment %}
+                <p class="text-bold detail-title">このゲームに必要なもの</p>
+                <div class="detail-text-box">
+                    <p class="detail-text-space">{{ object.item | linebreaksbr }}</p>
+                </div>
+                {% comment %} 開始前の準備 {% endcomment %}
+                <p class="text-bold detail-title">開始前の準備</p>
+                <div class="detail-text-box">
+                    <p class="detail-text-space">{{ object.preparation | linebreaksbr }}</p>
+                </div>
+                {% comment %} 勝利条件 {% endcomment %}
+                <p class="text-bold detail-title">勝利条件</p>
+                <div class="detail-text-box">
+                    <p class="detail-text-space">{{ object.wincondition | linebreaksbr }}</p>
+                </div>
+                {% comment %} 詳細 {% endcomment %}
+                <p class="text-bold detail-title">ゲームの流れ</p>
+                <div class="detail-text-box">
+                    <p class="detail-text-space">{{ object.detail | linebreaksbr }}</p>
+                </div>
+
+                <div class="detail-category">
+                    {% comment %} カテゴリ {% endcomment %}
+                    <div>
+                        <a href="{% url 'partygame:partygame_category' category=object.category.id %}" class="tag-text">
+                            <img src={% static 'img/card_black.png' %} width="25" height="20" class="">
+                            {{ object.category }}
+                        </a>
+                    </div>
+                    {% comment %} カテゴリ２ {% endcomment %}
+                    <div>
+                        <a href="{% url 'partygame:partygame_category2' category2=object.category2.id %}" class="tag-text">
+                            <img src={% static 'img/people_black.png' %} width="25" height="20"class="">
+                            {{ object.category2 }}
+                        </a>
+                    </div>
+                    {% comment %} カテゴリ３ {% endcomment %}
+                    <div>
+                        <a href="{% url 'partygame:partygame_category3' category3=object.category3.id %}" class="tag-text">
+                            <img src={% static 'img/vsken.png' %} width="25" height="20" class="">
+                            {{ object.category3 }}
+                        </a>
+                    </div>
+                    {% comment %} カテゴリ４ {% endcomment %}
+                    <div>
+                        <a href="{% url 'partygame:partygame_category4' category4=object.category4.id %}" class="tag-text">
+                            <img src={% static 'img/nomiso_black.png' %} width="25" height="20" class="">
+                            {{ object.category4 }}
+                        </a>
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <div class="postdate">投稿者：{{ object.user }}</div>
+                    <div class="postdate">{{ object.posted_at }}</div>
+                </div>
+
+                <br>
+
+                <div class="back-to-home">
+                    <a href="{% url 'partygame:index' %}" class="btn btn-primary btn-sm">ホームへ戻る</a>
+                </div>
+
+                {% comment %} ログイン中のユーザーの投稿であれば消去ボタン表示 {% endcomment %}
+                {% if request.user == object.user %}
+                    <form method="POST">
+                        <a href="{% url 'partygame:partygame_delete' object.pk %}" class="btn btn-outline-secondary btn-sm my-2 delete-button">投稿を削除する</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

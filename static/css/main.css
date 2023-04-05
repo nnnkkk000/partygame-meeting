@@ -1,0 +1,320 @@
+
+/* div {
+    border-style: solid;
+} */
+
+
+/* 色 */
+.text-white{
+    color: white;
+}
+
+.text-grey{
+    color:grey;
+}
+
+.text-black{
+    color: black;
+}
+
+.text-shadow-black{
+    text-shadow: 1px 1px black;
+}
+
+.text-shadow-grey{
+    text-shadow: 0.2px 0.2px grey;
+}
+
+/* 背景 */
+.bg-blue{
+    background-color: rgba(38, 175, 234, 0.3);
+}
+
+.bg-okami{
+    background-image: url(../img/okami_black.png);
+    background-repeat: no-repeat;
+    background-position: 50% 20%;
+    background-attachment: fixed;
+    background-size: 30%;
+}
+
+.bg-opacity{
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 40px 40px 30px 40px;
+    width: 80%;
+    height: 100%;
+}
+
+
+/* コンテナ配置 */
+.container-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.container-center{
+    display: flex;
+    justify-content: center;
+}
+
+.container-right{
+    display: flex;
+    justify-content: right;
+}
+
+.none-space{
+    width: 10%;
+}
+
+.container-up-down{
+    display: flex;
+    align-content: space-between;
+}
+
+.container-margin-all{
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.container-padding-all{
+    padding-top:3px;
+    padding-bottom: 3px;
+    padding-right: 1px;
+    padding-left: 1px;
+}
+
+
+/* タグの書式 */
+
+
+.text-bold {
+    font-weight: bold;
+}
+
+.tag-text {
+    text-decoration: none;
+    color: black;
+}
+
+.tag-container{
+    display: flex;
+    justify-content: row;
+    flex-wrap: wrap;
+    width: auto;
+    height: 100px;
+}
+
+.tag-space{
+    width: 50%;
+    height: 50%;
+}
+
+
+/* テキストの書式 */
+
+
+.text-right{
+    text-align: right;
+}
+
+.text-center-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-center{
+    text-align: center;
+}
+
+/* ボタン */
+.btn-width{
+    width: 100px;
+}
+
+
+/* ページタイトル */
+.pagetitle{
+    color: rgb(12, 126, 220);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 400%;
+    text-shadow: 2px 2px 0.5px rgb(247, 247, 248);
+}
+
+.pagecomment{
+    color: black;
+    font-weight: bold;
+    font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+    text-shadow: 0.5px 0.5px 1px white;
+}
+
+/* ヘッダー */
+.header-title{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+/* リストの書式 */
+
+.list-size{
+    height:350px;
+}
+
+.list-border{
+    border-style: double;
+    border-color: rgba(38, 175, 234, 0.4);
+    border-width: 10px;
+}
+
+.list-title{
+    height: 20%;
+    text-align: center;
+}
+
+.list-title-text{
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px #000;
+    text-shadow: 2px 2px black;
+    font-family: "Meiryo UI", "Hiragino Sans", "Yu Gothic UI", "MS PGothic", "Hiragino Kaku Gothic ProN", sans-serif;
+    font-weight: bolder;
+}
+
+.list-subtitle-container{
+    height: 30%;
+}
+
+/* サブタイトル */
+
+.list-subtitle{
+    height: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    color:black;
+    text-shadow: 0px 0.5px white;
+    text-align: center;
+}
+
+/* 詳細表示ボタン */
+
+.detail-button{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+/* タグ */
+
+.list-tag-container{
+    height: auto;
+}
+
+
+/* ユーザーネーム */
+.username-container{
+    text-align: right;
+    margin-right: 30px;
+    margin-bottom: 5px;
+    text-shadow: 0px 1px grey;
+    height: auto;
+}
+
+/* 詳細ページ */
+.detail-gametitle{
+    text-align: center;
+    font-weight: 800;
+    font-size: 50px;
+    font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+    color: rgba(0,0,0,0);
+    -webkit-text-stroke: 1px #000;
+    text-shadow: 2.5px 3px 1px rgba(38, 175, 234, 0.7);
+}
+
+.detail-title{
+    padding-left: 15%;
+    padding-bottom: 7px;
+    margin: 0px;
+}
+
+.detail-text-box{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.detail-text-space{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    color: black;
+    background-color: rgba(38, 175, 234, 0.1);
+    box-shadow: 0 0 3px 1px rgb(190, 189, 189);
+    width: 80%;
+    max-width: 800px;
+    min-width: 80%;
+}
+
+.detail-category{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10%;
+}
+
+.postdate{
+    display: flex;
+    justify-content: right;
+    padding-right: 10%;
+}
+
+.back-to-home{
+    display: flex;
+    justify-content: center;
+}
+
+.delete-button{
+    margin-left: 10%;
+}
+
+/* 投稿ページ */
+.text-input-space{
+    width: 100%;
+    background-color: rgba(38, 175, 234, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(80, 163, 204);
+}
+
+.select-button{
+    width: 100%;
+    background-color: rgba(179, 229, 248, 0.9);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(80, 163, 204);
+}
+
+.text-big-space{
+    width: 100%;
+    background-color: rgba(38, 175, 234, 0.15);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(80, 163, 204);
+}
+
+.submit-button{
+    background-color: rgb(0, 166, 255);
+    color: white;
+    font-weight: bold;
+}

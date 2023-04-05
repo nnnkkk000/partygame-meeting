@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% comment %} ヘッダーのタイトル {% endcomment %}
+{% block title %}PartyGame Meeting{% endblock %}
+
+{% block contents %}
+    {% comment %} タイトルテンプレート {% endcomment %}
+    {% include "partygame_title.html" %}
+    {% comment %} リストのテンプレート {% endcomment %}
+    {% include "partygame_list.html" %}
+    {% comment %} ページネーション {% endcomment %}
+    {% include "pagination.html" %}
+{% endblock %}

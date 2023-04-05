@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% comment %} ヘッダーのタイトル {% endcomment %}
+{% block title %}Sign Up{% endblock %}
+
+{% block contents %}
+    <hr>
+    {% comment %} グリッドシステム {% endcomment %}
+    <div class="container">
+        {% comment %} 行要素 {% endcomment %}
+        <div class="row">
+            {% comment %} 列要素（左右にoffset-2） {% endcomment %}
+            <div class="col offset-2">
+                <h3>メンバー登録</h3>
+                <br>
+                {% comment %} サインアップフォーム {% endcomment %}
+                <form method="post">
+                    {% csrf_token %}
+                    {% comment %} formからフィールドを取り出す {% endcomment %}
+                    {% for field in form %}
+                    <p>
+                        {% comment %} ラベル {% endcomment %}
+                        {{ field.label_tag }}<br>
+                        {% comment %} <input>タグ {% endcomment %}
+                        {{ field }}
+                        {% comment %} help_text {% endcomment %}
+                        {% if field.help_text %}
+                            <small style="color:grey">{{ field.help_text }}</small>
+                        {% endif %}
+                        {% comment %} エラー発生時 {% endcomment %}
+                        {% for error in field.errors %}
+                            <p style="color:red">{{ error }}</p>
+                        {% endfor %}
+                    </p>
+                    {% endfor %}
+                    
+                    {% comment %} Sign Up ボタン {% endcomment %}
+                    <input type="submit" value="登録">
+                </form>
+                <br>
+                <p><a href="{% url 'partygame:index' %}">
+                    登録をやめてトップページへ戻る</a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

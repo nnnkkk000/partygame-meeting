@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% comment %} ページタイトル {% endcomment %}
+{% block title %}投稿{% endblock %}
+
+{% block contents %}
+    <br>
+    {% comment %} グリッドシステム {% endcomment %}
+    <div class="container">
+        {% comment %} 行配置 {% endcomment %}
+        <div class="row">
+            {% comment %} 列配置 {% endcomment %}
+            <div class="col container-center">
+                {% comment %} フォーム {% endcomment %}
+                <form method="POST">
+                    {% csrf_token %}
+                    {% comment %} <table>
+                        <tr>
+                            <th>ゲームの分類</th>
+                            <td>{{ form.category }}</td>
+                        </tr>
+                        <tr>
+                            <th>プレイ人数</th>
+                            <td>{{ form.category2 }}</td>
+                        </tr>
+                        <tr>
+                            <th>対戦形式</th>
+                            <td>{{ form.category3 }}</td>
+                        </tr>
+                        <tr>
+                            <th>ムード</th>
+                            <td>{{ form.category4 }}</td>
+                        </tr>
+                        <tr>
+                            <th class="post-space">タイトル</th>
+                            <td>{{ form.title }}</td>
+                        </tr>
+                        <tr>
+                            <th>概要を一言で</th>
+                            <td>{{ form.subtitle }}</td>
+                        </tr>
+                        <tr>
+                            <th>必要なアイテム</th>
+                            <td>{{ form.item }}</td>
+                        </tr>
+                        <tr>
+                            <th>開始前の準備</th>
+                            <td>{{ form.preparation }}</td>
+                        </tr>
+                        <tr>
+                            <th>勝利条件</th>
+                            <td>{{ form.wincondition }}</td>
+                        </tr>
+                        <tr>
+                            <th>ゲームの流れ</th>
+                            <td>{{ form.detail }}</td>
+                        </tr>
+                    </table> {% endcomment %}
+
+                    <p class="text-bold">ゲームの分類<br>
+                    {{ form.category | add_class:"select-button" }}</p>
+                    <p class="text-bold">プレイ人数<br>
+                    {{ form.category2 | add_class:"select-button"  }}</p>
+                    <p class="text-bold">対戦形式<br>
+                    {{ form.category3 | add_class:"select-button"  }}</p>
+                    <p class="text-bold">ムード<br>
+                    {{ form.category4 | add_class:"select-button"  }}</p>
+                    <p class="text-bold">タイトル<br>
+                    {{ form.title | add_class:"text-input-space"  }}</p>
+                    <p class="text-bold">概要を一言で<br>
+                    {{ form.subtitle | add_class:"text-input-space"  }}</p>
+                    <p class="text-bold">必要なアイテム<br>
+                    {{ form.item | add_class:"text-big-space"  }}</p>
+                    <p class="text-bold">開始前の準備<br>
+                    {{ form.preparation | add_class:"text-big-space"  }}</p>
+                    <p class="text-bold">勝利条件<br>
+                    {{ form.wincondition | add_class:"text-input-space"  }}</p>
+                    <p class="text-bold">ゲームの流れ<br>
+                    {{ form.detail | add_class:"text-big-space"  }}</p>
+
+                    <hr>
+                    <button type="submit" class="submit-button">投稿する</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

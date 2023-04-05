@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% comment %} ページタイトル {% endcomment %}
+{% block title %}登録完了{% endblock %}
+
+{% block contents %}
+    {% comment %} グリッドシステム {% endcomment %}
+    <div class="container">
+        {% comment %} 行配置 {% endcomment %}
+        <div class="row">
+            {% comment %} 列配置 左右余白offset-4 上下パディングpy-4 {% endcomment %}
+            <div class="col offset-4 py-4">
+                <h3>登録が完了しました</h3>
+                {% comment %} ログインページ {% endcomment %}
+                <p><a href="{% url 'accounts:login' %}">ログインする</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

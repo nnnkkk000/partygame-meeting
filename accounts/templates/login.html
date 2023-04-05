@@ -1,0 +1,84 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>ログイン</title>
+
+    <link rel="icon" type="image/x-icon" href={% static 'assets/favicon.ico'%}>
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+
+    {% comment %} static/css/signin.css の読み込み {% endcomment %}
+    <link href={% static "css/signin.css" %} rel="stylesheet">
+  </head>
+  <body class="text-center">
+      
+    <main class="form-signin">
+
+      {% comment %} エラーメッセージ {% endcomment %}
+      {% if form.errors %}
+        <p style="color:red">入力された情報が正しくありません</p>
+      {% endif %}
+
+      <form method="post">
+        {% csrf_token %}
+
+        {% comment %} ロゴ表示 {% endcomment %}
+        <img class="mb-4" src={% static "img/okami_black.png" %} alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">サインイン</h1>
+
+        {% comment %} Usernameのラベル {% endcomment %}
+        <label for="Username" class="visually-hidden">ユーザー名</label>
+
+        {% comment %} Usernameの<input> {% endcomment %}
+        <input type="text" name="username" id="id_username" maxlength="150" autocapitalize="none" autocomplete="username" class="form-control" placeholder="ユーザー名" required autofocus>
+
+        {% comment %} Passwordのラベル {% endcomment %}
+        <label for="Password" class="visually-hidden">パスワード</label>
+
+        {% comment %} Passwordの<input> {% endcomment %}
+        <input type="password" name="password" id="id_password" autocomplete="current-password" class="form-control" placeholder="パスワード" required autofocus>
+
+        {% comment %} ログインボタン {% endcomment %}
+        <input class="w-100 btn btn-lg btn-primary" type="submit" value="ログイン">
+
+        <br><br>
+
+        {% comment %} パスワードリセット {% endcomment %}
+        <p><a href="{% url 'password_reset' %}">パスワードをリセット</a></p>
+
+        {% comment %} ログイン直後のリダイレクト先 → トップページ {% endcomment %}
+        <input type="hidden" name="next" value="{% url 'partygame:index' %}">
+
+      </form>
+      <p><a href="{% url 'partygame:index' %}">トップページへ戻る</a><p/>
+    </main>
+  </body>
+</html>
