@@ -36,4 +36,7 @@ urlpatterns = [
 
     # 削除ページ
     path('partygame/<int:pk>/delete/', views.PartygameDeleteView.as_view(), name='partygame_delete'),
+
+    # 問い合わせページ
+    path('contact/', views.ContactView.as_view(), name='contact'),
 ]

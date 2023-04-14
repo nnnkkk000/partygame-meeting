@@ -5,7 +5,11 @@ from .forms import PartygamePostForm
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from .models import PartygamePost
-from django.views.generic import DetailView, DeleteView
+from django.views.generic import DetailView, DeleteView, FormView
+from .forms import ContactForm
+from django.contrib import messages
+from django.core.mail import EmailMessage
+
 
 # Create your views here.
 
@@ -119,6 +123,7 @@ class DetailView(DetailView):
     template_name = 'detail.html'
     model = PartygamePost
 
+# マイページ
 class MypageView(ListView):
     template_name = 'mypage.html'
     paginate_by = 9
@@ -129,6 +134,7 @@ class MypageView(ListView):
         queryset = PartygamePost.objects.filter(user=self.request.user).order_by('-posted_at')
         return queryset
 
+# 投稿削除
 class PartygameDeleteView(DeleteView):
     template_name = 'partygame_delete.html'
     model = PartygamePost
@@ -138,4 +144,36 @@ class PartygameDeleteView(DeleteView):
     # レコードの削除
     def delete(self, request, *args, **kwargs):
         return super().delete(request, *args, **kwargs)
+
+# 問い合わせページ
+class ContactView(FormView):
+    template_name = 'contact.html'
+    form_class = ContactForm
+    # 送信完了後にリダイレクトするページ
+    success_url = reverse_lazy('partygame:contact')
+
+    def form_valid(self, form):
+        # フォームに入力されたデータを取得
+        name = form.cleaned_data['name']
+        email = form.cleaned_data['email']
+        title = form.cleaned_data['title']
+        message = form.cleaned_data['message']
+
+        # メールタイトルの書式
+        subject = 'お問合せ: {}'.format(title)
+        # フォーム入力データの書式
+        message = '送信者名: {0}\n メールアドレス: {1}\n タイトル: {2}\n メッセージ: \n{3}'.format(name, email, title, message)
+        # メール送信元のアドレス
+        from_email = 'partygamemeeting@gmail.com'
+        # 送信先のアドレス
+        to_list = ['partygamemeeting@gmail.com']
+        
+        message = EmailMessage(subject=subject, body=message, from_email=from_email, to=to_list,)
+
+        message.send()
+
+        # 送信後に表示するメッセージ
+        messages.success(self.request, 'お問合せは正常に送信されました')
+
+        return super().form_valid(form)
 
