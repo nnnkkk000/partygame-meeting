@@ -128,11 +128,11 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # メールサーバーへの接続設定
-DEFAULT_FORM_EMAIL = ''
-EMAIL_HOST = ''
+DEFAULT_FORM_EMAIL = 'partygamemeeting@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = 'partygamemeeting@gmail.com'
+EMAIL_HOST_PASSWORD = 'bxwsrlfzbaqvnzeh'
 EMAIL_USE_TLS = True
 
 # mediaフォルダの場所を登録
