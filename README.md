@@ -27,4 +27,4 @@
 コメント機能|実際にゲームを試してみた感想などを入れると、探す側の参考になり、求めているゲームに辿り着きやすくなると考えるため
 
 # リンク
-[PartygameMeeting](.partygame/templates/index.html)
+[PartygameMeeting](https://nnnkkk000.github.io/partygame-meeting/partygame/templates/index.html)
