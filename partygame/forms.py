@@ -26,10 +26,10 @@ class ContactForm(forms.Form):
         super().__init__(*args, **kwargs)
         self.fields['name'].widget.attrs['placeholder'] = 'お名前を入力してください'
         self.fields['name'].widget.attrs['class'] = 'form-control'
-        self.fields['name'].widget.attrs['placeholder'] = 'メールアドレスを入力してください'
-        self.fields['name'].widget.attrs['class'] = 'form-control'
-        self.fields['name'].widget.attrs['placeholder'] = '件名を入力してください'
-        self.fields['name'].widget.attrs['class'] = 'form-control'
-        self.fields['name'].widget.attrs['placeholder'] = 'メッセージを入力してください'
-        self.fields['name'].widget.attrs['class'] = 'form-control'
+        self.fields['email'].widget.attrs['placeholder'] = 'メールアドレスを入力してください'
+        self.fields['email'].widget.attrs['class'] = 'form-control'
+        self.fields['title'].widget.attrs['placeholder'] = '件名を入力してください'
+        self.fields['title'].widget.attrs['class'] = 'form-control'
+        self.fields['message'].widget.attrs['placeholder'] = 'メッセージを入力してください'
+        self.fields['message'].widget.attrs['class'] = 'form-control'
         

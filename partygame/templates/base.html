@@ -61,12 +61,12 @@
               <li><a href="{% url 'partygame:mypage' %}" class="text-white">マイページ</a></li>
               <li><a href="{% url 'accounts:logout' %}" class="text-white">ログアウト</a></li>
               <li><a href="{% url 'password_reset' %}" class="text-white">パスワードのリセット</a></li>
-              <li><a href="#" class="text-white">コンタクト</a></li>
+              <li><a href="{% url 'partygame:contact' %}" class="text-white">お問合せ</a></li>
             {% comment %} ログイン中でないときのメニュー {% endcomment %}
             {% else %}
               <li><a href="{% url 'accounts:signup' %}" class="text-white">メンバー登録</a></li>
               <li><a href="{% url 'accounts:login' %}" class="text-white">ログイン</a></li>
-              <li><a href="#" class="text-white">コンタクト</a></li>
+              <li><a href="{% url 'partygame:contact' %}" class="text-white">お問合せ</a></li>
             {% endif %}
           </ul>
         </div>
