@@ -32,5 +32,3 @@ https://user-images.githubusercontent.com/129883227/233411951-eb8d11de-8871-492e
 並べ替え機能|いいねが多い投稿やアクセスが集中している投稿など、提案に近い状態にして探す手間や心理的コストを減らすため
 コメント機能|実際にゲームを試してみた感想などを入れると、探す側の参考になり、求めているゲームに辿り着きやすくなると考えるため
 
-# リンク
-[PartygameMeeting](https://nnnkkk000.github.io/partygame-meeting/partygame/templates/index.html)
