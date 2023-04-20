@@ -3,8 +3,11 @@
 人と人との間を繋ぐようなサービスを作りたいという思いで作成しました。  
 友人同士で集まった時や初めて人と会う時など、様々な場面に対してピッタリのゲームを探し出せる場所にしたいと考えています。
 
-# イメージ
+# 操作イメージ
 https://user-images.githubusercontent.com/129883227/233410926-8eb3d064-5ea6-48af-a5c1-da399d2626a3.mov
+
+# 投稿イメージ
+https://user-images.githubusercontent.com/129883227/233411951-eb8d11de-8871-492e-9511-4e08a1ae1f92.mov
 
 # 使用技術
 ・Python(Django)  
